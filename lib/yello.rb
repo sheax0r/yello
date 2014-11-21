@@ -1,5 +1,13 @@
-require "yello/version"
+require 'yello/version'
+require 'yello/list'
+require 'yaml'
 
 module Yello
-  # Your code goes here...
+  class << self
+    def parse(string)
+      YAML.load(string).map{|k,v|
+        Yello::List.new(k, v)
+      } 
+    end
+  end 
 end

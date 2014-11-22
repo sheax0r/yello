@@ -1,12 +1,11 @@
-$: << "#{__dir__}/../lib"
+require 'spec_helper'
 require 'rspec/expectations'
 require 'yello'
 
-
-RSpec.configure do |c|
-end
-
 describe Yello do
+  RSpec.configure do |c|
+  end
+
   let(:lists) { Yello.parse(File.read("#{__dir__}/test.yml")) }
   let(:cards) { lists[0].cards }
   let(:checklists) { cards[4].checklists }

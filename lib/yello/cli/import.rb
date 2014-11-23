@@ -4,10 +4,10 @@ require 'yello/trello'
 
 module Yello
   class CLI < Thor
-    desc 'create', 'Create a board. Reads from STDIN if file is unspecified.'
+    desc 'import', 'Import a board.'
     option :file, aliases: :f, banner: "<file>"
-    def create(board)
-      Yello.trello.create(board, Yello.parse(input))
+    def import(board)
+      Yello.trello.import(board, Yello.parse(input))
     end
 
     no_tasks do

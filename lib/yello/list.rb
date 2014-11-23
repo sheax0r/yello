@@ -6,15 +6,9 @@ module Yello
 
     attr_reader :cards
 
-    def initialize(name, hash)
+    def initialize(name, cards)
       super(name)
-      @cards = (hash['cards'] || []).map{|c|
-        if c.is_a? Hash
-          Card.new(c.keys[0], c)
-        else
-          Card.new(c, {})
-        end
-      }
+      @cards = cards
     end
   end
 end

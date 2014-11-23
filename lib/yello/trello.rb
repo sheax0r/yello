@@ -17,7 +17,7 @@ module Yello
                                      member_token: auth.token)
     end
 
-    def create(name, lists)
+    def import(name, lists)
       board = client.create(:boards, 'name'=>name)
       board.lists.each do |l|
         l.closed = true

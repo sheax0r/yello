@@ -5,12 +5,9 @@ module Yello
   class Card < Base
     attr_accessor :checklists
 
-
-    def initialize(name, hash)
+    def initialize(name, checklists)
       super(name)
-      @checklists = (hash['checklists'] || []).map{|h|
-        Checklist.new(h.keys[0], h.values[0])
-      }
+      @checklists = checklists
     end
 
   end

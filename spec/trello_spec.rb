@@ -18,7 +18,7 @@ module Yello
       Yello.parse(File.read("#{__dir__}/create.yml"))
     }
 
-    it 'should create a board' do
+    it 'should import a board' do
       expect(Yello::Auth).to receive(:get){ auth }
       expect(::Trello::Client).to receive(:new).with(
         developer_public_key: 'KEY',
@@ -35,8 +35,12 @@ module Yello
         expect(client).to receive(:find).with(:checklist, 'CHECKLIST-ID'){checklist}
         expect(checklist).to receive(:add_item).with('ITEM')
 
-        Yello.trello.create('BOARD', input)
+        Yello.trello.import('BOARD', input)
     end    
+
+    it 'should export a board' do
+
+    end
 
   end
 end

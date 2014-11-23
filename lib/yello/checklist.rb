@@ -1,4 +1,3 @@
-$: << "#{__dir__}/.."
 require 'yello/base'
 
 module Yello

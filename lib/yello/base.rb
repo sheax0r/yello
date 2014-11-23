@@ -1,4 +1,3 @@
-$: << "#{__dir__}/.."
 module Yello
   class Base
     attr_accessor :name

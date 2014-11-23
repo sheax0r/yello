@@ -1,6 +1,6 @@
+require 'yaml'
 require 'yello/version'
 require 'yello/list'
-require 'yaml'
 
 module Yello
   class << self

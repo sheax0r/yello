@@ -17,13 +17,11 @@ module Yello
                                      member_token: auth.token)
     end
 
-    def create(name, lists, options=create_options)
+    def create(name, lists)
       board = client.create(:boards, 'name'=>name)
-      unless options[:merge]
-        board.lists.each{|l|
-          l.closed = true
-          l.save
-        } 
+      board.lists.each do |l|
+        l.closed = true
+        l.save
       end
 
       lists.reverse.each do |l|

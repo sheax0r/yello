@@ -19,8 +19,8 @@ module Yello
 
       def cards(array)
         # Sort by position
-        array.sort_by{|c|-c.pos}.map{|c|
-          Yello::Card.new(c.name, checklists(c.checklists))
+        array.sort_by{|c|c.pos}.map{|c|
+          Yello::Card.new(c.name, c.desc, checklists(c.checklists))
         } 
       end
 

@@ -6,7 +6,7 @@ module Yello
 
     let(:board){ double('board', name: 'BOARD', lists: [list]) }
     let(:list){ double('list', name: 'LIST', cards:[card])}
-    let(:card){ double('card', name: 'CARD', pos: 1, checklists: [checklist])}
+    let(:card){ double('card', name: 'CARD', pos: 1, desc: 'DESCRIPTION', checklists: [checklist])}
     let(:checklist){ double('checklist', name: 'CHECKLIST', items: [item])} 
     let(:item){ double('item', name: 'ITEM') }
 

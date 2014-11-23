@@ -30,6 +30,7 @@ module Yello
         if c.checklists && !c.checklists.empty?
           {
             c.name=>nil,
+            'desc'=>c.desc,
             'checklists'=>c.checklists.map{|cl|checklist(cl)}
           }
         else

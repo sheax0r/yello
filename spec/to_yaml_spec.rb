@@ -5,8 +5,8 @@ module Yello
   describe self do
     let(:lists){[list]}
     let(:list){double('list', name: 'LIST', cards: [card1, card2])}
-    let(:card1){double('card1', name: 'CARD1', checklists: [checklist])}
-    let(:card2){double('card2', name: 'CARD2', checklists:nil)}
+    let(:card1){double('card1', name: 'CARD1', desc: 'DESCRIPTION', checklists: [checklist])}
+    let(:card2){double('card2', name: 'CARD2', desc: nil, checklists:nil)}
     let(:checklist){double('checklist', name: 'CHECKLIST', items:['ITEM'])}
 
     it 'should convert model objects to yaml' do
@@ -20,7 +20,8 @@ module Yello
                   {'CHECKLIST'=>[
                     'ITEM']
                   }
-                ]
+                ],
+                'desc'=>'DESCRIPTION'
               },
               'CARD2'
             ]

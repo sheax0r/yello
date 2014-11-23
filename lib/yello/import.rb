@@ -20,7 +20,7 @@ module Yello
 
       lists.reverse.each do |l|
         list = client.create(:list, l.attributes.merge('idBoard'=>board.id))
-        l.cards.each do |c|
+        l.cards.reverse.each do |c|
           card = client.create(:card, c.attributes.merge('idList'=>list.id))
           c.checklists.each do |cl|
             checklist = client.find(:checklist, JSON.parse(card.create_new_checklist(cl.name))['id'])

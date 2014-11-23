@@ -5,6 +5,7 @@ Not Started:
   - Get a key card
   - Attend the noob-101 workshop
   - Submit your first bugfix:
+    desc: You must fix a bug to prove your worth.
     checklists:
     - Process:
       - Write tests

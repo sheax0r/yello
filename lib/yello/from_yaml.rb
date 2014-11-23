@@ -22,9 +22,9 @@ module Yello
       def cards(hash)
         (hash['cards'] || []).map{|c|
           if c.is_a? Hash
-            Card.new(c.keys[0], checklists(c))
+            Card.new(c.keys[0], c['desc'], checklists(c))
           else
-            Card.new(c, [])
+            Card.new(c, nil, [])
           end
         }
       end

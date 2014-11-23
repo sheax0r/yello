@@ -30,7 +30,7 @@ module Yello
         expect(existing_list).to receive(:closed=).with(true)
         expect(existing_list).to receive(:save)
         expect(client).to receive(:create).with(:list, 'name'=>'LIST', 'idBoard'=> 'BOARD-ID'){ list }
-        expect(client).to receive(:create).with(:card, 'name'=>'CARD', 'idList'=>'LIST-ID'){ card }
+        expect(client).to receive(:create).with(:card, 'name'=>'CARD', 'idList'=>'LIST-ID', 'desc'=>nil){ card }
         expect(card).to receive(:create_new_checklist).with('CHECKLIST'){checklist_json}
         expect(client).to receive(:find).with(:checklist, 'CHECKLIST-ID'){checklist}
         expect(checklist).to receive(:add_item).with('ITEM')

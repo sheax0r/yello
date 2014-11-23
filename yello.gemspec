@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Mike Shea']
   spec.email         = ['mike.shea@gmail.com']
   spec.summary       = %q{Yaml to trello}
-  spec.homepage      = ""
+  spec.homepage      = "http://github.com/sheax0r/yello"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files -z`.split("\x0")
@@ -27,5 +27,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency 'rest-client', '~> 1.7.2'
   spec.add_dependency 'ruby-trello', '~> 1.1.2'
   spec.add_dependency 'thor', '~> 0.19.1'
-
+  spec.add_dependency 'netrc', '~> 0.8.0'
 end

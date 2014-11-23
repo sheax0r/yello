@@ -1,4 +1,4 @@
-require 'yaml'
+require 'netrc'
 
 module Yello
 
@@ -7,16 +7,19 @@ module Yello
   class Auth
     class << self
       def get
-        yaml = YAML.load(File.read(file))
-        Auth.new(yaml.fetch('key'), yaml.fetch('token')) 
+        n = netrc['yello']
+        Auth.new(*(netrc['yello']))
       end
 
       def set(key, token)
-        File.write(file, {"key"=>key, "token"=>token}.to_yaml)
+        netrc.tap do |n| 
+          n['yello'] = key, token
+          n.save
+        end
       end
 
-      def file
-        "#{ENV['HOME']}/.yellorc"
+      def netrc
+        Netrc.read
       end
     end
   end

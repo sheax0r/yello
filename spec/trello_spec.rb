@@ -8,6 +8,8 @@ module Yello
     let(:auth){ double('auth', :key=>'KEY', :token=>'TOKEN') }
     let(:client) { double('client') }
     let(:board) { double('board', id: 'BOARD-ID') } 
+    let(:existing_lists){ [existing_list] }
+    let(:existing_list){ double('existing-list') }
     let(:list) { double('list', id: 'LIST-ID') }   
     let(:card){ double('card') }
     let(:checklist_json){ {'id'=>'CHECKLIST-ID'}.to_json }
@@ -24,7 +26,10 @@ module Yello
           client 
         }
         expect(client).to receive(:create).with(:boards, 'name'=>'BOARD'){board}
-        expect(client).to receive(:create).with(:list, 'name'=>'LIST', 'idBoard'=> 'BOARD-ID', 'pos'=>'bottom'){ list }
+        expect(board).to receive(:lists){existing_lists}
+        expect(existing_list).to receive(:closed=).with(true)
+        expect(existing_list).to receive(:save)
+        expect(client).to receive(:create).with(:list, 'name'=>'LIST', 'idBoard'=> 'BOARD-ID'){ list }
         expect(client).to receive(:create).with(:card, 'name'=>'CARD', 'idList'=>'LIST-ID'){ card }
         expect(card).to receive(:create_new_checklist).with('CHECKLIST'){checklist_json}
         expect(client).to receive(:find).with(:checklist, 'CHECKLIST-ID'){checklist}

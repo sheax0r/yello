@@ -17,11 +17,17 @@ module Yello
                                      member_token: auth.token)
     end
 
-    def create(name, lists, options=default_options)
-      board = client.create(:boards, 'name'=>name) 
+    def create(name, lists, options=create_options)
+      board = client.create(:boards, 'name'=>name)
+      unless options[:merge]
+        board.lists.each{|l|
+          l.closed = true
+          l.save
+        } 
+      end
 
-      lists.each do |l|
-        list = client.create(:list, l.attributes.merge('idBoard'=>board.id, 'pos'=>'bottom'))
+      lists.reverse.each do |l|
+        list = client.create(:list, l.attributes.merge('idBoard'=>board.id))
         l.cards.each do |c|
           card = client.create(:card, c.attributes.merge('idList'=>list.id))
           c.checklists.each do |cl|
@@ -36,12 +42,11 @@ module Yello
 
     private
 
-    def default_options
+    def create_options 
       {
-        :merge=>'false'
+        :merge=>false
       }
     end    
 
   end
 end
-

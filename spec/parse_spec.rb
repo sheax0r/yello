@@ -1,6 +1,5 @@
 require 'spec_helper'
-require 'rspec/expectations'
-require 'yello'
+require 'yello/parse'
 
 describe Yello do
   RSpec.configure do |c|

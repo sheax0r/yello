@@ -2,10 +2,13 @@ require 'yello/base'
 
 module Yello
   class Checklist < Base
-    attr_accessor :items
+
+    attr_accessor :check_items
+    alias_method :items, :check_items
+
     def initialize(name, items) 
       super(name)
-      @items = items 
+      @check_items = items 
     end
   end
 end

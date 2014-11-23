@@ -5,5 +5,9 @@ module Yello
     def initialize(name)
       @name = name 
     end 
+
+    def api_attributes
+      {'name'=>name} 
+    end
   end
 end

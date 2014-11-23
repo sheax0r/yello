@@ -22,6 +22,10 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec', '~>3.0'
   spec.add_development_dependency 'simplecov', '~> 0.9.1'
 
-  spec.add_dependency 'thor', '~> 0.19.1'
   spec.add_dependency 'highline', '~> 1.6.21'
+  spec.add_dependency 'os', '~> 0.9.6'
+  spec.add_dependency 'rest-client', '~> 1.7.2'
+  spec.add_dependency 'ruby-trello', '~> 1.1.2'
+  spec.add_dependency 'thor', '~> 0.19.1'
+
 end

@@ -37,14 +37,5 @@ module Yello
         end
       end
     end
-
-    private
-
-    def create_options 
-      {
-        :merge=>false
-      }
-    end    
-
   end
 end

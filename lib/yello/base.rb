@@ -6,7 +6,7 @@ module Yello
       @name = name 
     end 
 
-    def api_attributes
+    def attributes
       {'name'=>name} 
     end
   end

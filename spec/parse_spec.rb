@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'rspec/expectations'
 require 'yello/parse'
 
 describe Yello do

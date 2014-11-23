@@ -4,11 +4,10 @@ require 'yello/auth'
 module Yello
   describe Auth do
 
-    let(:auth_contents) {{"key"=>"KEY", "token"=>"TOKEN"}.to_yaml}
-    let (:auth_file) {"#{ENV['HOME']}/.yellorc"}
+    let(:netrc) {{'yello'=>['KEY', 'TOKEN']}}
 
     it 'should get auth' do
-      expect(File).to receive(:read).with(auth_file){ auth_contents }
+      expect(Netrc).to receive(:read){ netrc }
       Yello::Auth.get.tap{|auth|
         expect(auth.key).to eq "KEY"
         expect(auth.token).to eq "TOKEN"
@@ -16,7 +15,9 @@ module Yello
     end
 
     it 'should set auth' do
-      expect(File).to receive(:write).with(auth_file, auth_contents)
+      expect(Netrc).to receive(:read){ netrc } 
+      expect(netrc).to receive(:[]=).with('yello', ['KEY', 'TOKEN'])
+      expect(netrc).to receive(:save)
       Yello::Auth.set('KEY', 'TOKEN') 
     end
   end

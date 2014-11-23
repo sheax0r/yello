@@ -7,7 +7,6 @@ module Yello
   class Auth
     class << self
       def get
-        n = netrc['yello']
         Auth.new(*(netrc['yello']))
       end
 

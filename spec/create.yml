@@ -1,8 +1,8 @@
 LIST:
   cards:
   - CARD:
-      checklists:
-      - CHECKLIST:
-        - ITEM
+    checklists:
+    - CHECKLIST:
+      - ITEM
 
     

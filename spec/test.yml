@@ -5,11 +5,11 @@ Not Started:
   - Get a key card
   - Attend the noob-101 workshop
   - Submit your first bugfix:
-      checklists:
-      - Process:
-        - Write tests
-        - Write code
-        - Get it reviewed
-        - Merge it
+    checklists:
+    - Process:
+      - Write tests
+      - Write code
+      - Get it reviewed
+      - Merge it
 In Progress: {} 
 Completed: {} 

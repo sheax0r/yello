@@ -10,7 +10,7 @@ module Yello
       super(name)
       @cards = (hash['cards'] || []).map{|c|
         if c.is_a? Hash
-          Card.new(c.keys[0], c.values[0])
+          Card.new(c.keys[0], c)
         else
           Card.new(c, {})
         end

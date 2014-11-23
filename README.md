@@ -14,9 +14,9 @@ walk you through this process if you run this:
 ```bash
 yello login
 ```
-Credentials will be stored in your [netrc](http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html) file.
+Credentials will be stored in your [netrc file](http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html).
 If you encrypt this file with GPG, your Trello credentials will also be encrypted.
-This functionality is courtesy of [netrc gem](https://github.com/heroku/netrc)
+This functionality is brought to you courtesy of the [netrc gem](https://github.com/heroku/netrc)
 
 ## Usage
 

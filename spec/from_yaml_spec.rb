@@ -1,12 +1,12 @@
 require 'spec_helper'
 require 'rspec/expectations'
-require 'yello/parse'
+require 'yello/from_yaml'
 
 describe Yello do
   RSpec.configure do |c|
   end
 
-  let(:lists) { Yello.parse(File.read("#{__dir__}/test.yml")) }
+  let(:lists) { Yello.from_yaml(File.read("#{__dir__}/test.yml")) }
   let(:cards) { lists[0].cards }
   let(:checklists) { cards[4].checklists }
 

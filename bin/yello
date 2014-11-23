@@ -1,5 +1,15 @@
 #!/usr/bin/env ruby
 $: << "${__dir__}/../lib"
 require 'yello/cli'
-Yello::CLI.start(ARGV)
+
+begin
+  Yello::CLI.start(ARGV)
+rescue => bang
+  if ENV['DEBUG']
+    raise bang
+  else
+    puts bang.message
+    exit 1
+  end
+end
 

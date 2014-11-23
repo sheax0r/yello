@@ -9,7 +9,7 @@ module Yello
 
     it 'should get auth' do
       expect(File).to receive(:read).with(auth_file){ auth_contents }
-      Yello.get_auth.tap{|auth|
+      Yello::Auth.get.tap{|auth|
         expect(auth.key).to eq "KEY"
         expect(auth.token).to eq "TOKEN"
       }
@@ -17,7 +17,7 @@ module Yello
 
     it 'should set auth' do
       expect(File).to receive(:write).with(auth_file, auth_contents)
-      Yello.set_auth('KEY', 'TOKEN') 
+      Yello::Auth.set('KEY', 'TOKEN') 
     end
   end
 end

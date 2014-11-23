@@ -1,15 +1,6 @@
 require 'yaml'
 
 module Yello
-  class << self
-    def set_auth(key, token)
-      Auth.set(key, token)
-    end
-
-    def get_auth
-      Auth.get
-    end
-  end
 
   Auth = Struct.new(:key, :token)
 

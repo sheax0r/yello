@@ -4,7 +4,7 @@ require 'yello/import'
 require 'json'
 
 module Yello
-  describe Trello do
+  describe self do
     let(:auth){ double('auth', :key=>'KEY', :token=>'TOKEN') }
     let(:client) { double('client') }
     let(:board) { double('board', id: 'BOARD-ID') } 

@@ -1,6 +1,7 @@
 require 'thor'
 require 'yello/from_trello'
 require 'yello/trello'
+require 'yello/to_yaml'
 
 module Yello
   class CLI < Thor
@@ -10,7 +11,7 @@ module Yello
     def export
       Yello.from_trello(board).tap do |result|
         output {|f|
-          f.write(result)
+          f.write(Yello.to_yaml(result))
         }
       end
     end
@@ -41,9 +42,7 @@ module Yello
         options[:file]
       end
 
-      def client
-        Yello.trello.client
-      end
+      include Trello
     end
   end
 end

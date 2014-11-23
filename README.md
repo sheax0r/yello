@@ -1,26 +1,65 @@
 # Yello
 
-TODO: Write a gem description
+This CLI enables the import/export of Trello boards to and from YAML files.
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'yello'
+```bash
+gem install yello
 ```
 
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install yello
+## Configuration
+You will need to obtain a Trello API key and token. The CLI will 
+walk you through this process if you run this:
+```bash
+yello login
+```
+Credentials will be stored in your [netrc](http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html) file.
+If you encrypt this file with GPG, your Trello credentials will also be encrypted.
+This functionality is courtesy of [netrc gem](https://github.com/heroku/netrc)
 
 ## Usage
 
-TODO: Write usage instructions here
+Here is an example of the file format:
+```yaml
+Not Started:
+  cards:
+  - Get an email account
+  - Have lunch with your manager
+  - Get a key card
+  - Attend the noob-101 workshop
+  - Submit your first bugfix:
+    checklists:
+    - Process:
+      - Write tests
+      - Write code
+      - Get it reviewed
+      - Merge it
+In Progress: {} 
+Completed: {} 
+```
+
+### Importing a file
+Importing a file will create a new board in Trello with the name you specify..
+```bash
+# this ... 
+yello import "my awesome board" --file /path/to/file.yml
+
+# or this ... 
+cat /path/to/file.yml | yello import "my awesome board" 
+```
+
+### Exporting a file
+Exporting a board will generate yaml based on the given board from Trello.
+At present, only board IDs are supported when exporting.
+
+```bash
+# this ... 
+yello export --id TE7Kl7ua --file /path/to/file.yml
+
+# or this ... 
+yello export --id TE7Kl7ua > /path/to/file.yml
+```
 
 ## Contributing
 

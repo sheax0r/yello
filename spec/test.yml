@@ -3,7 +3,10 @@ Not Started:
   - Get an email account
   - Have lunch with your manager
   - Get a key card
-  - Attend the noob-101 workshop
+  - Attend the noob-101 workshop:
+    checklist:
+      - item 1
+      - item 2
   - Submit your first bugfix:
     desc: You must fix a bug to prove your worth.
     checklists:

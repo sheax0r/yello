@@ -1,5 +1,5 @@
 require 'yello/trello'
-require 'yello/list'
+require 'yello/model'
 
 module Yello
 

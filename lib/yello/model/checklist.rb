@@ -1,4 +1,4 @@
-require 'yello/base'
+require 'yello/model/base'
 
 module Yello
   class Checklist < Base

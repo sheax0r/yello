@@ -1,5 +1,5 @@
 require 'yaml'
-require 'yello/list'
+require 'yello/model'
 
 module Yello
   class << self

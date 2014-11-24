@@ -1,5 +1,4 @@
-require 'yello/base'
-require 'yello/card'
+require 'yello/model/base'
 
 module Yello
   class List < Base

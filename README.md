@@ -28,8 +28,13 @@ Not Started:
   - Have lunch with your manager
   - Get a key card
   - Attend the noob-101 workshop
+    # Shorthand for a simple checklist
+    checklist:
+      - item 1
+      - item 2
   - Submit your first bugfix:
     desc: You must fix a bug to prove your worth.
+    # Long form for if you need multiple checklists or custom names.
     checklists:
     - Process:
       - Write tests

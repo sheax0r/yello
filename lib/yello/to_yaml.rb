@@ -27,14 +27,14 @@ module Yello
       end
 
       def card(c)
-        if c.checklists && !c.checklists.empty?
-          {
-            c.name=>nil,
-            'desc'=>c.desc,
-            'checklists'=>c.checklists.map{|cl|checklist(cl)}
-          }
+        hash = {c.name=>nil}.tap do |h|
+          h['desc'] = c.desc if c.desc
+          h['checklists'] = c.checklists.map{|cl|checklist(cl)} if c.checklists
+        end
+        if hash.size == 1
+          return c.name
         else
-          c.name
+          return hash
         end
       end
 

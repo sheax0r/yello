@@ -1,6 +1,6 @@
 require 'yello/from_yaml'
 require 'spec_helper'
-require 'yello/import'
+require 'yello/to_trello'
 require 'json'
 
 module Yello
@@ -35,13 +35,8 @@ module Yello
         expect(client).to receive(:find).with(:checklist, 'CHECKLIST-ID'){checklist}
         expect(checklist).to receive(:add_item).with('ITEM')
 
-        Yello.import('BOARD', input)
+        Yello.to_trello('BOARD', input)
     end    
-
-    it 'should export a board' do
-
-    end
-
   end
 end
 

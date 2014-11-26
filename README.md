@@ -46,13 +46,13 @@ Completed: {}
 ```
 
 ### Importing a file
-Importing a file will create a new board in Trello with the name you specify..
+Importing a file will create a new board in Trello with the name you specify.
 ```bash
 # this ... 
-yello import "my awesome board" --file /path/to/file.yml
+yello import --file /path/to/file.yml --share foo@bar.com "my awesome board"
 
 # or this ... 
-cat /path/to/file.yml | yello import "my awesome board" 
+cat /path/to/file.yml | yello import --share foo@bar.com "my awesome board"
 ```
 
 ### Exporting a file
